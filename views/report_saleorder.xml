@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_saleorder_document_simplificat" inherit_id="formato_cotizacion.report_saleorder_document_inherit_suplidora_jc" priority="40">
+        
+        <!-- Reemplazar el logo estático por el logo de SimplificaT -->
+        <xpath expr="//img[@src='/formato_cotizacion_suplidora_jc/static/src/img/logo.jpg']" position="replace">
+            <img src="/formato_cotizacion_simplificat/static/src/img/logo.png" style="max-height: 90px; width: auto; display: block;"/>
+        </xpath>
+
+        <!-- Reemplazar colores de la tabla principal (Azul Marino y Rojo SimplificaT) -->
+        <xpath expr="//thead" position="replace">
+            <thead>
+                <tr style="background-color: #04167e; color: white !important; font-weight: bold; border-bottom: 3px solid #cb1a1c;">
+                    <th class="text-start" style="padding: 8px; border: 1px solid #04167e; color: white !important;">Descripción</th>
+                    <th class="text-end" style="padding: 8px; border: 1px solid #04167e; color: white !important;">Cantidad</th>
+                    <th class="text-end" style="padding: 8px; border: 1px solid #04167e; color: white !important;">Precio</th>
+                    <th class="text-end" style="padding: 8px; border: 1px solid #04167e; color: white !important;">Importe</th>
+                </tr>
+            </thead>
+        </xpath>
+
+        <!-- Reemplazar color de la fila TOTAL -->
+        <xpath expr="//div[contains(@class, 'justify-content-end')]//table/tr[3]" position="replace">
+            <tr style="background-color: #04167e; color: white; font-weight: bold; border-top: 3px solid #cb1a1c;">
+                <td class="text-start" style="padding: 8px; color: white !important;">TOTAL</td>
+                <td class="text-end" style="padding: 8px; color: white !important;">B/. <span t-field="doc.amount_total" t-options='{"widget": "float", "precision": 2}'/></td>
+            </tr>
+        </xpath>
+
+    </template>
+</odoo>
