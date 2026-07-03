@@ -4,7 +4,7 @@
         
         <!-- Reemplazar el logo estático por el logo de SimplificaT -->
         <xpath expr="//img[@src='/formato_cotizacion_suplidora_jc/static/src/img/logo.jpg']" position="replace">
-            <img src="/formato_cotizacion_simplificat/static/src/img/logo.png" style="max-height: 90px; width: auto; display: block;"/>
+            <img t-if="res_company.logo" t-att-src="image_data_uri(res_company.logo)" style="max-height: 90px; width: auto; display: block;"/>
         </xpath>
 
         <!-- Reemplazar colores de la tabla principal (Azul Marino y Rojo SimplificaT) -->
