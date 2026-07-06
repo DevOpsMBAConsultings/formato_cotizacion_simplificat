@@ -30,7 +30,7 @@
                 <td class="text-start" style="padding: 8px; vertical-align: middle;"><span t-field="line.name"/></td>
                 <td class="text-center" style="padding: 8px; vertical-align: middle;"><span t-esc="int(line.product_uom_qty)"/></td>
                 <td class="text-center" style="padding: 8px; vertical-align: middle;">
-                    <span t-out="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+                    B/. <span t-field="line.price_tax" t-options='{"widget": "float", "precision": 2}'/>
                 </td>
                 <td class="text-end" style="padding: 8px; vertical-align: middle;">B/. <span t-field="line.price_unit" t-options='{"widget": "float", "precision": 2}'/></td>
                 <td class="text-end" style="padding: 8px; vertical-align: middle;">B/. <span t-field="line.price_subtotal" t-options='{"widget": "float", "precision": 2}'/></td>
